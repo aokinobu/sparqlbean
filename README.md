@@ -10,3 +10,11 @@ Initially this development was funded by the Integrated Database Project by MEXT
 
 # Support Sponsorship
 Development and support has continued under Sparqlite LLC 
+
+# run test cases
+assuming the aokinobu/docker-virtuoso instance is running with default network, it is possible to run the test cases for this project to connect to the virtuoso server, and run sparql queries, test inserts, all under transaction and rollback.
+
+assuming docker-compose with support for v3 yml files, the following will execute all tests:
+```
+docker-compose run --rm maven test
+ ```
