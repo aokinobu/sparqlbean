@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  maven:
+    build: ${DOCKER_PATH}/docker-maven
+    image: aokinobu/maven
+    volumes:
+     - ${PWD}:/workspace
+     - ${MAVEN_DIR}:/home/aoki/.m2
+    working_dir: /workspace/
+    environment:
+     - SPRING_TRIPLESTORE_URL=jdbc:virtuoso://virtuoso:1111
+
+networks:
+  default:
+    external:
+      name: virtuoso_default
