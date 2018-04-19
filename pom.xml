@@ -2,16 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.glycoinfo</groupId>
-	<artifactId>batch</artifactId>
-	<version>0.3.9-SNAPSHOT</version>
+	<groupId>com.sparqlite</groupId>
+	<artifactId>sparqlbean</artifactId>
+	<version>0.01</version>
 	<packaging>jar</packaging>
-	<parent>
-		<groupId>org.glytoucan</groupId>
-		<artifactId>pom-site</artifactId>
-		<version>0.24-SNAPSHOT</version>
-		<relativePath>../pom-site/pom.xml</relativePath>
-	</parent>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -199,6 +193,10 @@
 			<id>glycoinfo</id>
 			<url>http://nexus.glycoinfo.org/content/groups/public</url>
 		</repository>
+		<repository>
+			<id>sparqlite</id>
+			<url>https://nexus.sparqlite.com/repository/maven-public/</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -206,6 +204,13 @@
 			<url>http://repo.spring.io/libs-release</url>
 		</pluginRepository>
 	</pluginRepositories>
+	<!-- 
+			<repository>
+			<id>sparqlite</id>
+			<name>Internal Releases</name>
+			<url>https://nexus.sparqlite.com/repository/maven-public/</url>
+		</repository>
+	
 	<distributionManagement>
 		<repository>
 			<id>glycoinfo</id>
@@ -220,6 +225,25 @@
 		<site>
 			<id>glycoinfo-projects</id>
 			<url>dav:http://nexus.glycoinfo.org/content/sites/project/batch/</url>
+		</site>
+	</distributionManagement>
+
+	 -->
+	<distributionManagement>
+		<repository>
+			<id>sparqlite</id>
+			<name>Internal Releases</name>
+			<url>https://nexus.sparqlite.com/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>sparqlite</id>
+			<name>Internal Release Snapshots</name>
+			<url>https://nexus.sparqlite.com/repository/maven-snapshots/</url>
+		</snapshotRepository>
+		<site>
+			<id>sparqlite-projects</id>
+			<url>dav:https://nexus.sparqlite.com/repository/site/</url>
+			<!--  https://books.sonatype.com/nexus-book/3.0/reference/raw.html#sites-introduction -->
 		</site>
 	</distributionManagement>
 	<profiles>

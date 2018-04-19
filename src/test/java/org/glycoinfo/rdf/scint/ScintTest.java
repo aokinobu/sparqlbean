@@ -9,8 +9,6 @@ import org.glycoinfo.rdf.SparqlException;
 import org.glycoinfo.rdf.dao.SparqlDAO;
 import org.glycoinfo.rdf.dao.SparqlEntity;
 import org.glycoinfo.rdf.dao.virt.VirtSesameTransactionConfig;
-import org.glycoinfo.rdf.service.impl.ContributorProcedureConfig;
-import org.glycoinfo.rdf.service.impl.GlycanProcedureConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -28,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {ScintTest.class, VirtSesameTransactionConfig.class, ContributorProcedureConfig.class, GlycanProcedureConfig.class, GlyConvertConfig.class})
+@SpringApplicationConfiguration(classes = {ScintTest.class, VirtSesameTransactionConfig.class, GlyConvertConfig.class})
 @ComponentScan(basePackages = {"org.glycoinfo.rdf.scint"}, excludeFilters={
 		  @ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE, value=SelectScintTest.class)})
 @Configuration
