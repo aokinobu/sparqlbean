@@ -3,7 +3,7 @@ Java Interfaces and utility classes to handle sparql interaction with the underl
 
 # Background
 When it comes to data persistence, there has always been a discussion regarding two methods: object-relational mapping (object-table synchronization) and embedding the query language directly into the source code as semi-configuration files.
-The most popular projects between these two methodologies are hibernate for OR mapping and ibatis for SQL configuration.
+The most popular projects between these two methodologies are hibernate for OR mapping and ibatis (now [mybatis](https://github.com/mybatis/mybatis-3)) for SQL configuration.
 One of the goals for these "persistence layers" was the possibility to completely change the underlying data store vendor with a simple configuration change.  In reality, this can prove to be very difficult as this forces OR mapping projects to support all of the various vendors and their slight tweaks to the SQL language.
 With ibatis, it was acknowledged that this is not reasonable, and so having direct access to the SQL can clearly show what modifications are needed.  This in itself is quite a burden.
 
