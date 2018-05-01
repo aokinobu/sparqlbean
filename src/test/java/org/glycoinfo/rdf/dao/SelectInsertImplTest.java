@@ -6,9 +6,12 @@ import org.glycoinfo.rdf.dao.virt.VirtSesameTransactionConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 
 @SpringApplicationConfiguration(classes = VirtSesameTransactionConfig.class)
+@IntegrationTest
 public class SelectInsertImplTest {
 
 	public static Logger logger = (Logger) LoggerFactory

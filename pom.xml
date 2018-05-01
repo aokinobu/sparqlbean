@@ -8,24 +8,6 @@
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-batch</artifactId>
-			<exclusions>
-<!-- 				<exclusion> -->
-<!-- 					<groupId>org.springframework.boot</groupId> -->
-<!-- 					<artifactId>spring-boot-starter-logging</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>org.springframework</groupId> -->
-<!-- 					<artifactId>spring-jdbc</artifactId> -->
-<!-- 				</exclusion> -->
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
@@ -93,35 +75,17 @@
 			<artifactId>sesame-http-client</artifactId>
 			<version>2.8.0-beta2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.glycoinfo.WURCSFramework</groupId>
-			<artifactId>WURCSRDF</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-log4j12</artifactId>
-				</exclusion>
-				<exclusion>
-					<artifactId>log4j</artifactId>
-					<groupId>log4j</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.glycoinfo.convert</groupId>
-			<artifactId>glyconvert</artifactId>
-			<version>0.0.5-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>log4j-api</artifactId>
-					<groupId>org.apache.logging.log4j</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+    <dependency>
+    	<groupId>org.apache.jena</groupId>
+    	<artifactId>apache-jena-libs</artifactId>
+    	<version>2.13.0</version>
+    	<type>pom</type>
+    </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -129,30 +93,9 @@
 			<version>2.6</version>
 		</dependency>
 		<dependency>
-			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-library</artifactId>
-			<version>2.10.4</version>
-		</dependency>
-		<dependency>
 			<groupId>org.glytoucan</groupId>
 			<artifactId>model</artifactId>
 			<version>1.2.4-TOCO-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>jp.bluetree.log</groupId>
-			<artifactId>client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.batch</groupId>
-			<artifactId>spring-batch-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 	</dependencies>
 	<build>
@@ -182,6 +125,28 @@
 					<enableAssertions>false</enableAssertions>
 				</configuration>
 			</plugin>
+
+<!-- <plugin> -->
+<!-- <groupId>com.spotify</groupId> -->
+<!-- <artifactId>dockerfile-maven-plugin</artifactId> -->
+<!-- <version>${dockerfile-maven-version}</version> -->
+<!-- <executions> -->
+<!--   <execution> -->
+<!--     <id>default</id> -->
+<!--     <goals> -->
+<!--       <goal>build</goal> -->
+<!--       <goal>push</goal> -->
+<!--     </goals> -->
+<!--   </execution> -->
+<!-- </executions> -->
+<!-- <configuration> -->
+<!--   <repository>registry.bluetree.jp/sparqlbean</repository> -->
+<!--   <tag>${project.version}</tag> -->
+<!--   <buildArgs> -->
+<!--     <JAR_FILE>${project.build.finalName}.jar</JAR_FILE> -->
+<!--   </buildArgs> -->
+<!-- </configuration> -->
+<!-- </plugin> -->
 		</plugins>
 	</build>
 	<repositories>
@@ -246,53 +211,6 @@
 			<!--  https://books.sonatype.com/nexus-book/3.0/reference/raw.html#sites-introduction -->
 		</site>
 	</distributionManagement>
-	<profiles>
-		<profile>
-			<id>wurcs</id>
-			<activation>
-				<activeByDefault />
-			</activation>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.glyconvert.wurcs.WurcsConvertSparqlBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>mass</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.mass.MassCalculatorSparqlBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>motif</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.search.wurcs.WurcsMotifSearchBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>glycomedb</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.glyconvert.wurcs.GlycomeDBWurcsConvertSparqlBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>kcf</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.convert.kcf.KcfConvertTripleBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>rdf</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.glytoucan.GlycoCTProcessBatch</spring.mainClass>
-			</properties>
-		</profile>
-		<profile>
-			<id>linkIsomer</id>
-			<properties>
-				<spring.mainClass>org.glycoinfo.batch.search.wurcs.WurcsLinkageIsomerSearchBatch</spring.mainClass>
-			</properties>
-		</profile>
-	</profiles>
 	<properties>
 		<changelog.fileUri>${changelog.github.fileUri}</changelog.fileUri>
 		<changelog.revision.fileUri>${changelog.revision.github.fileUri}</changelog.revision.fileUri>
@@ -303,6 +221,8 @@
 		<repository.user>glytoucan</repository.user>
 		<repository.name>batch</repository.name>
 		<googleAnalyticsAccountId>UA-54566807-1</googleAnalyticsAccountId>
+    <project.build.finalName>sparqlbean</project.build.finalName>
+<dockerfile-maven-version>v1.4.0</dockerfile-maven-version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>

@@ -2,7 +2,6 @@ package org.glycoinfo.rdf.scint;
 
 import java.util.List;
 
-import org.glycoinfo.convert.GlyConvertConfig;
 import org.glycoinfo.rdf.InsertSparql;
 import org.glycoinfo.rdf.SelectSparql;
 import org.glycoinfo.rdf.SparqlException;
@@ -26,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {ScintTest.class, VirtSesameTransactionConfig.class, GlyConvertConfig.class})
+@SpringApplicationConfiguration(classes = {ScintTest.class, VirtSesameTransactionConfig.class})
 @ComponentScan(basePackages = {"org.glycoinfo.rdf.scint"}, excludeFilters={
 		  @ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE, value=SelectScintTest.class)})
 @Configuration

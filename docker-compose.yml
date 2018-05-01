@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-  maven:
+  sparqlbean:
     build: ${DOCKER_PATH}/docker-maven
     image: aokinobu/maven
     volumes:
@@ -13,4 +13,4 @@ services:
 networks:
   default:
     external:
-      name: virtuoso_default
+      name: dockervirtuoso_default
