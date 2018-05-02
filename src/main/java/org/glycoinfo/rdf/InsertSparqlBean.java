@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.glycoinfo.rdf.dao.SparqlEntity;
 import org.glycoinfo.rdf.dao.SparqlEntityFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -15,7 +13,6 @@ import org.slf4j.LoggerFactory;
  */
 public class InsertSparqlBean implements InsertSparql {
 
-	protected Logger logger = LoggerFactory.getLogger(getClass());
 
 	protected String insert, prefix, where, graph, using;
 	protected boolean constant = true;
@@ -133,7 +130,6 @@ public class InsertSparqlBean implements InsertSparql {
 			}
 			return sparqlbuf.toString();
 		} else {
-			logger.debug(this.sparql.toString());
 			return this.sparql.toString();
 		}
 	}

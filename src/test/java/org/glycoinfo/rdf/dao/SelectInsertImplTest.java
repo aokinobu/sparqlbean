@@ -3,6 +3,7 @@ package org.glycoinfo.rdf.dao;
 import org.glycoinfo.rdf.InsertSparqlBean;
 import org.glycoinfo.rdf.SparqlException;
 import org.glycoinfo.rdf.dao.virt.VirtSesameTransactionConfig;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +12,7 @@ import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 
 @SpringApplicationConfiguration(classes = VirtSesameTransactionConfig.class)
-@IntegrationTest
 public class SelectInsertImplTest {
-
-	public static Logger logger = (Logger) LoggerFactory
-			.getLogger("org.glytoucan.registry.dao.test.SchemaDAOImplTest");
 
 	@Autowired
 	SparqlDAO schemaDAO;
@@ -67,6 +64,7 @@ public class SelectInsertImplTest {
 		));
 	}
 
+	@Test
 	public void testInsertSelectGraphGlycoCT() throws SparqlException {
 		schemaDAO.insert(new InsertSparqlBean(prefix + "\n" + "INSERT\n"
 				+ "{ GRAPH <"+graph+"> {\n"
