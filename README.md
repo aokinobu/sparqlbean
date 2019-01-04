@@ -1,6 +1,8 @@
 # SparqlBean
 Java Interfaces and utility classes to handle sparql interaction with the underlying RDF triplestore.
 
+<img src="https://sparqlite.com/images/sparqlbean.svg" width=247 length=326  />
+
 # Background
 When it comes to data persistence, there has always been a discussion regarding two methods: object-relational mapping (object-table synchronization) and embedding the query language directly into the source code as semi-configuration files.
 The most popular projects between these two methodologies are hibernate for OR mapping and ibatis (now [mybatis](https://github.com/mybatis/mybatis-3)) for SQL configuration.
