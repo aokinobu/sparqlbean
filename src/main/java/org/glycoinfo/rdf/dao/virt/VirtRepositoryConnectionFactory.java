@@ -17,7 +17,7 @@ import org.springframework.transaction.TransactionSystemException;
  * @author ameingast@gmail.com
  * @see SesameConnectionFactory
  */
-public class VirtRepositoryConnectionFactory implements DisposableBean, VirtSesameConnectionFactory {
+public class VirtRepositoryConnectionFactory implements VirtSesameConnectionFactory {
     private final ThreadLocal<VirtSesameTransactionObject> localTransactionObject;
 
     private final Repository repository;

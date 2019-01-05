@@ -67,7 +67,7 @@ public class SparqlDAOVirtSesameImpl implements SparqlDAO {
 			+ "PREFIX sio: <http://semanticscience.org/resource/> \n"
 			+ "PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#> \n";
 
-	@Autowired(required=false)
+	@Autowired
 	protected VirtSesameConnectionFactory sesameConnectionFactory;
 
 	

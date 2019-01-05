@@ -1,6 +1,6 @@
 package org.glycoinfo.rdf;
 
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @author aoki
  *
  */
-@XmlRootElement (name="select-sparql")
+//@XmlRootElement (name="select-sparql")
 public interface SelectSparql extends SparqlBean {
 	@JsonProperty(value="define")
 	public String getDefine();
